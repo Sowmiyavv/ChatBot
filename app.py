@@ -10,7 +10,7 @@ def home():
     return "success"
 
 
-@app.route("/chatbot/api/get_response", methods=['POST'])
+@app.route("/chatbot/api/get_response", methods=["POST"])
 def get_bot_response():
     user_text = request.form.get('msg')
     bot = Bot(user_text)
