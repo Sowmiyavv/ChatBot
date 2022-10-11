@@ -5,7 +5,7 @@ from training import BotTrainer
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def home():
     return "success"
 
@@ -18,7 +18,7 @@ def get_bot_response():
     return output
 
 
-@app.route('/chatbot/api/train')
+@app.route('/chatbot/api/train', methods=["GET"])
 def train_bot():
     bot_trainer = BotTrainer()
     bot_trainer.train()
