@@ -4,14 +4,15 @@ from training import BotTrainer
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def home():
     return "success"
 
 
-@app.route("/chatbot/api/get_response")
+@app.route("/chatbot/api/get_response", methods=['POST'])
 def get_bot_response():
-    user_text = request.args.get('msg')
+    user_text = request.form.get('msg')
     bot = Bot(user_text)
     output = bot.predict()
     return output
