@@ -3,7 +3,6 @@ import pickle
 import numpy as np
 
 import nltk
-import requests
 from nltk.stem import WordNetLemmatizer
 
 from keras.models import Sequential
@@ -23,11 +22,11 @@ class BotTrainer:
 
     @staticmethod
     def get_json_from_db():
-        url = "https://chatbotconsole.azurewebsites.net/api/BotConfiguration/worksos"
-        response = requests.request("GET", url, verify=False)
-        json_data = response.json()[0]
-        # from data_json import json_data_from_db
-        # json_data = json_data_from_db[0]
+        # url = "https://localhost:7236/api/BotConfiguration"
+        # response = requests.request("GET", url, verify=False)
+        # json_data = response.json()[0]
+        from data_json import json_data_from_db
+        json_data = json_data_from_db[0]
         return json_data
 
     def train(self):

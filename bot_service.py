@@ -5,7 +5,7 @@ import nltk
 import numpy as np
 from keras.models import load_model
 from nltk.stem import WordNetLemmatizer
-import requests
+
 nltk.download('popular')
 
 
@@ -22,11 +22,11 @@ class Bot:
 
     @staticmethod
     def get_json_from_db():
-        url = "https://chatbotconsole.azurewebsites.net/api/BotConfiguration/worksos"
-        response = requests.request("GET", url, verify=False)
-        json_data = response.json()[0]
-        # from data_json import json_data_from_db
-        # json_data = json_data_from_db[0]
+        # url = "https://localhost:7236/api/BotConfiguration"
+        # response = requests.request("GET", url, verify=False)
+        # json_data = response.json()[0]
+        from data_json import json_data_from_db
+        json_data = json_data_from_db[0]
         return json_data
 
     def clean_up_sentence(self, sentence):
